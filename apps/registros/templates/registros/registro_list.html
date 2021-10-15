@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+
+<br>
+    {% for registro in object_list %}
+        <a href="{% url 'update_registro' registro.id %}">{{ registro }}</a>
+        <a href="{% url 'delete_registro' registro.id %}">Deletar</a><br>
+    {% endfor %}
+
+    {% if not object_list %}
+    <h3>Não há registros de Hora-Extras</h3>
+    {% endif %}
+
+    <a href="{% url 'create_registro' %}" class="btn btn-info"> Novo </a>
+
+
+{% endblock %}
